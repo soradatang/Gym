@@ -47,10 +47,12 @@ const schedule = {
   ]
 };
 
+const dayNames = ["Chủ nhật", "Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7"];
 const daySelector = document.getElementById("daySelector");
 const exercisesList = document.getElementById("exercises");
 
 function updateExercises(day) {
+  day = Number(day); // Ép kiểu để tra đúng key của object
   exercisesList.innerHTML = "";
   if (schedule[day]) {
     schedule[day].forEach((ex) => {
@@ -73,6 +75,6 @@ daySelector.addEventListener("change", (e) => {
 
 // Load current day by default
 const today = new Date().getDay();
-document.getElementById("today").innerText = "Hôm nay là: Thứ " + (today === 0 ? "Chủ nhật" : today);
+document.getElementById("today").innerText = "Hôm nay là: " + dayNames[today];
 daySelector.value = today;
 updateExercises(today);
