@@ -36,7 +36,7 @@ const schedule = {
   { name: "Hanging Leg Raise – 3x15", img: "images/hanging-leg-raise.jpg" },
   { name: "Russian Twist – 3x20 mỗi bên", img: "images/russian-twist.jpg" },
   { name: "Side Plank – 3x mỗi bên 30s", img: "images/side-plank.jpg" }
-]
+],
   0: [
     { name: "Bulgarian Split Squat – 3x12 mỗi bên", img: "images/bulgarian-split-squat.jpg" },
     { name: "Barbell Back Squat – 4x10", img: "images/barbell-back-squat.jpg" },
