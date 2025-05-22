@@ -29,14 +29,14 @@ const schedule = {
     { name: "Cable Crunch – 3x20", img: "images/cable-crunch.jpg" }
   ],
   6: [
-  { name: "Incline Dumbbell Press – 4x8", img: "images/incline-dumbbell-press.jpg" },
-  { name: "Incline Cable Fly – 3x12", img: "images/incline-cable-fly.jpg" },
-  { name: "Dumbbell Pullover – 4x12", img: "images/dumbbell-pullover.jpg" },
-  { name: "Single-arm Chest Press – 3x12 mỗi bên", img: "images/single-arm-chest-press.jpg" },
-  { name: "Hanging Leg Raise – 3x15", img: "images/hanging-leg-raise.jpg" },
-  { name: "Russian Twist – 3x20 mỗi bên", img: "images/russian-twist.jpg" },
-  { name: "Side Plank – 3x mỗi bên 30s", img: "images/side-plank.jpg" }
-],
+    { name: "Incline Dumbbell Press – 4x8", img: "images/incline-dumbbell-press.jpg" },
+    { name: "Incline Cable Fly – 3x12", img: "images/incline-cable-fly.jpg" },
+    { name: "Dumbbell Pullover – 4x12", img: "images/dumbbell-pullover.jpg" },
+    { name: "Single-arm Chest Press – 3x12 mỗi bên", img: "images/single-arm-chest-press.jpg" },
+    { name: "Hanging Leg Raise – 3x15", img: "images/hanging-leg-raise.jpg" },
+    { name: "Russian Twist – 3x20 mỗi bên", img: "images/russian-twist.jpg" },
+    { name: "Side Plank – 3x mỗi bên 30s", img: "images/side-plank.jpg" }
+  ],
   0: [
     { name: "Bulgarian Split Squat – 3x12 mỗi bên", img: "images/bulgarian-split-squat.jpg" },
     { name: "Barbell Back Squat – 4x10", img: "images/barbell-back-squat.jpg" },
@@ -49,13 +49,26 @@ const schedule = {
   ]
 };
 
+const workoutTitles = {
+  1: "Ngực + Tay sau",
+  2: "Lưng + Tay trước",
+  3: "Nghỉ ngơi",
+  4: "Vai + Bụng",
+  5: "Nghỉ ngơi",
+  6: "Ngực + Core",
+  0: "Chân + Cầu vai"
+};
+
 const dayNames = ["Chủ nhật", "Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7"];
 const daySelector = document.getElementById("daySelector");
 const exercisesList = document.getElementById("exercises");
+const workoutTitleEl = document.getElementById("workout-title");
 
 function updateExercises(day) {
-  day = Number(day); // Ép kiểu để tra đúng key của object
+  day = Number(day);
+  workoutTitleEl.innerText = "Buổi tập hôm nay: " + (workoutTitles[day] || "Không rõ");
   exercisesList.innerHTML = "";
+
   if (schedule[day]) {
     schedule[day].forEach((ex) => {
       const li = document.createElement("li");
@@ -75,7 +88,6 @@ daySelector.addEventListener("change", (e) => {
   updateExercises(e.target.value);
 });
 
-// Load current day by default
 const today = new Date().getDay();
 document.getElementById("today").innerText = "Hôm nay là: " + dayNames[today];
 daySelector.value = today;
