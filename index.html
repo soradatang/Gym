@@ -29,33 +29,52 @@
   <ul id="exercises"></ul>
   <script src="app.js"></script>
 </body>
-  <section id="meal-plan" style="padding: 30px; background-color: #f3f3f3; font-family: sans-serif;">
-  <h2 style="text-align: center; margin-bottom: 20px;">🍽️ Thực đơn cho ngày tập</h2>
+  <!-- Meal Plan Toggle -->
+<button onclick="toggleMealPlan()" style="margin-top: 1rem;">Hiện / Ẩn Thực Đơn</button>
+<div id="mealPlan" style="display: none; margin-top: 1rem;">
+  <h2>Thực đơn theo ngày tập</h2>
+  <ul>
+    <li><strong>Thứ 2 (Ngực + Tay sau)</strong>
+      <ul>
+        <li>Trưa: 150g ức gà luộc, 200g khoai lang, cải xanh hấp</li>
+        <li>Tối: 150g cá hồi áp chảo, 1 chén cơm trắng, canh rau dền</li>
+      </ul>
+    </li>
+    <li><strong>Thứ 3 (Lưng + Tay trước)</strong>
+      <ul>
+        <li>Trưa: 200g thịt bò xào hành cần, 1 củ khoai tây luộc, salad dưa leo</li>
+        <li>Tối: 2 quả trứng luộc, cơm gạo lứt, bắp cải xào</li>
+      </ul>
+    </li>
+    <li><strong>Thứ 5 (Vai + Bụng)</strong>
+      <ul>
+        <li>Trưa: 150g ức gà áp chảo, yến mạch nấu chín, bông cải xanh</li>
+        <li>Tối: 150g cá basa hấp, cà rốt luộc, đậu cove xào</li>
+      </ul>
+    </li>
+    <li><strong>Thứ 7 (Ngực + Core)</strong>
+      <ul>
+        <li>Trưa: 2 trứng ốp la, bánh mì nguyên cám, rau trộn dầu oliu</li>
+        <li>Tối: 150g thịt heo nạc luộc, 1 chén bún gạo, canh mướp</li>
+      </ul>
+    </li>
+    <li><strong>Chủ nhật (Chân + Cầu vai)</strong>
+      <ul>
+        <li>Trưa: 150g tôm hấp, cơm trắng, rau muống luộc</li>
+        <li>Tối: 200g gà nướng mật ong, miến, canh cải thìa</li>
+      </ul>
+    </li>
+  </ul>
+</div>
 
-  <div style="max-width: 800px; margin: auto;">
-    <h3>Bữa trưa</h3>
-    <ul>
-      <li>150g ức gà áp chảo</li>
-      <li>1 chén cơm gạo lứt hoặc khoai lang</li>
-      <li>Rau luộc hoặc salad + dầu oliu</li>
-    </ul>
-
-    <h3>Bữa phụ trước tập (nếu cần)</h3>
-    <ul>
-      <li>1 quả chuối hoặc yến mạch + whey protein</li>
-    </ul>
-
-    <h3>Bữa tối</h3>
-    <ul>
-      <li>100–150g cá/hải sản</li>
-      <li>Rau củ hấp hoặc nướng</li>
-      <li>1 quả trứng luộc (nếu chưa đủ đạm)</li>
-    </ul>
-
-    <h3>Bữa phụ sau tập (nếu tập chiều/tối)</h3>
-    <ul>
-      <li>1 muỗng whey + nước lọc</li>
-    </ul>
-  </div>
-</section>
+<script>
+  function toggleMealPlan() {
+    var mealPlan = document.getElementById("mealPlan");
+    if (mealPlan.style.display === "none") {
+      mealPlan.style.display = "block";
+    } else {
+      mealPlan.style.display = "none";
+    }
+  }
+</script>
 </html>
