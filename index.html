@@ -34,62 +34,30 @@
 <div id="mealDiv" style="margin-left: 1rem;"></div>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const mealPlans = {
-      1: {
-        title: "Thứ 2 – Ngực + Tay sau",
-        meals: [
-          "Trưa: 150g ức gà luộc, 200g khoai lang, cải xanh hấp",
-          "Tối: 150g cá hồi áp chảo, 1 chén cơm trắng, canh rau dền"
-        ]
-      },
-      2: {
-        title: "Thứ 3 – Lưng + Tay trước",
-        meals: [
-          "Trưa: 200g thịt bò xào hành cần, 1 củ khoai tây luộc, salad dưa leo",
-          "Tối: 2 quả trứng luộc, cơm gạo lứt, bắp cải xào"
-        ]
-      },
-      4: {
-        title: "Thứ 5 – Vai + Bụng",
-        meals: [
-          "Trưa: 150g ức gà áp chảo, yến mạch nấu chín, bông cải xanh",
-          "Tối: 150g cá basa hấp, cà rốt luộc, đậu cove xào"
-        ]
-      },
-      6: {
-        title: "Thứ 7 – Ngực + Core",
-        meals: [
-          "Trưa: 2 trứng ốp la, bánh mì nguyên cám, rau trộn dầu oliu",
-          "Tối: 150g thịt heo nạc luộc, 1 chén bún gạo, canh mướp"
-        ]
-      },
-      0: {
-        title: "Chủ nhật – Chân + Cầu vai",
-        meals: [
-          "Trưa: 150g tôm hấp, cơm trắng, rau muống luộc",
-          "Tối: 200g gà nướng mật ong, miến, canh cải thìa"
-        ]
-      }
+  window.addEventListener('DOMContentLoaded', () => {
+    const dayMap = {
+      1: 'dayMon',
+      2: 'dayTue',
+      4: 'dayThu',
+      6: 'daySat',
+      0: 'daySun'
     };
 
-    function updateMealPlan(day) {
-      const container = document.getElementById("mealDiv");
-      const plan = mealPlans[day];
-      if (plan) {
-        container.innerHTML = `
-          <h3>${plan.title}</h3>
-          <ul>
-            ${plan.meals.map(meal => `<li>${meal}</li>`).join('')}
-          </ul>
-        `;
-      } else {
-        container.innerHTML = "<p>Hôm nay bạn nghỉ tập, không cần thực đơn đặc biệt.</p>";
-      }
-    }
+    const today = new Date().getDay(); // 0 (Sun) → 6 (Sat)
+    const allDays = ['dayMon', 'dayTue', 'dayThu', 'daySat', 'daySun'];
 
-    const today = new Date().getDay(); // 0 = CN, 1 = T2, ..., 6 = T7
-    updateMealPlan(today);
+    // Ẩn tất cả các thực đơn
+    allDays.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.style.display = 'none';
+    });
+
+    // Hiện đúng thực đơn hôm nay nếu có
+    const todayId = dayMap[today];
+    if (todayId) {
+      const el = document.getElementById(todayId);
+      if (el) el.style.display = 'block';
+    }
   });
 </script>
 </html>
