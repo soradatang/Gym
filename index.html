@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
@@ -6,12 +6,12 @@
   <style>
     body { font-family: sans-serif; padding: 20px; }
     img { max-width: 100%; height: auto; }
+    #meal-plan { margin-top: 20px; }
   </style>
 </head>
 <body>
   <h1>Lịch Tập Gym</h1>
   <p id="today"></p>
-  
   <label for="daySelector">Chọn ngày: </label>
   <select id="daySelector">
     <option value="1">Thứ 2</option>
@@ -22,11 +22,7 @@
     <option value="6">Thứ 7</option>
     <option value="0">Chủ nhật</option>
   </select>
-
-  <!-- 🔽 DÒNG BẠN CẦN THÊM -->
   <h2 id="workout-title"></h2>
-
   <ul id="exercises"></ul>
-  <script src="app.js"></script>
-</body>
-</html>
+  <button id="toggle-meal">Hiện/ẩn thực đơn hôm nay</button>
+  <div id="meal-plan" style="display:none;"></div>
