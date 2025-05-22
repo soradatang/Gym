@@ -29,12 +29,14 @@ const schedule = {
     { name: "Cable Crunch – 3x20", img: "images/cable-crunch.jpg" }
   ],
   6: [
-    { name: "Dumbbell Pullover – 4x12", img: "images/dumbbell-pullover.jpg" },
-    { name: "Single-arm Chest Press – 3x12 mỗi bên", img: "images/single-arm-chest-press.jpg" },
-    { name: "Hanging Leg Raise – 3x15", img: "images/hanging-leg-raise.jpg" },
-    { name: "Russian Twist – 3x20 mỗi bên", img: "images/russian-twist.jpg" },
-    { name: "Side Plank – 3x mỗi bên 30s", img: "images/side-plank.jpg" }
-  ],
+  { name: "Incline Dumbbell Press – 4x8", img: "images/incline-dumbbell-press.jpg" },
+  { name: "Incline Cable Fly – 3x12", img: "images/incline-cable-fly.jpg" },
+  { name: "Dumbbell Pullover – 4x12", img: "images/dumbbell-pullover.jpg" },
+  { name: "Single-arm Chest Press – 3x12 mỗi bên", img: "images/single-arm-chest-press.jpg" },
+  { name: "Hanging Leg Raise – 3x15", img: "images/hanging-leg-raise.jpg" },
+  { name: "Russian Twist – 3x20 mỗi bên", img: "images/russian-twist.jpg" },
+  { name: "Side Plank – 3x mỗi bên 30s", img: "images/side-plank.jpg" }
+]
   0: [
     { name: "Bulgarian Split Squat – 3x12 mỗi bên", img: "images/bulgarian-split-squat.jpg" },
     { name: "Barbell Back Squat – 4x10", img: "images/barbell-back-squat.jpg" },
