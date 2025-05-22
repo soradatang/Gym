@@ -29,52 +29,55 @@
   <ul id="exercises"></ul>
   <script src="app.js"></script>
 </body>
-  <!-- Meal Plan Toggle -->
-<button onclick="toggleMealPlan()" style="margin-top: 1rem;">Hiện / Ẩn Thực Đơn</button>
-<div id="mealPlan" style="display: none; margin-top: 1rem;">
-  <h2>Thực đơn theo ngày tập</h2>
-  <ul>
-    <li><strong>Thứ 2 (Ngực + Tay sau)</strong>
-      <ul>
-        <li>Trưa: 150g ức gà luộc, 200g khoai lang, cải xanh hấp</li>
-        <li>Tối: 150g cá hồi áp chảo, 1 chén cơm trắng, canh rau dền</li>
-      </ul>
-    </li>
-    <li><strong>Thứ 3 (Lưng + Tay trước)</strong>
-      <ul>
-        <li>Trưa: 200g thịt bò xào hành cần, 1 củ khoai tây luộc, salad dưa leo</li>
-        <li>Tối: 2 quả trứng luộc, cơm gạo lứt, bắp cải xào</li>
-      </ul>
-    </li>
-    <li><strong>Thứ 5 (Vai + Bụng)</strong>
-      <ul>
-        <li>Trưa: 150g ức gà áp chảo, yến mạch nấu chín, bông cải xanh</li>
-        <li>Tối: 150g cá basa hấp, cà rốt luộc, đậu cove xào</li>
-      </ul>
-    </li>
-    <li><strong>Thứ 7 (Ngực + Core)</strong>
-      <ul>
-        <li>Trưa: 2 trứng ốp la, bánh mì nguyên cám, rau trộn dầu oliu</li>
-        <li>Tối: 150g thịt heo nạc luộc, 1 chén bún gạo, canh mướp</li>
-      </ul>
-    </li>
-    <li><strong>Chủ nhật (Chân + Cầu vai)</strong>
-      <ul>
-        <li>Trưa: 150g tôm hấp, cơm trắng, rau muống luộc</li>
-        <li>Tối: 200g gà nướng mật ong, miến, canh cải thìa</li>
-      </ul>
-    </li>
-  </ul>
+  <!-- Meal Plan Section -->
+<h2 style="margin-top: 2rem;">Thực đơn theo ngày tập</h2>
+
+<div>
+  <button onclick="toggleDay('dayMon')">Thứ 2 – Ngực + Tay sau</button>
+  <div id="dayMon" style="display: none; margin: 0.5rem 0 1rem 1rem;">
+    <ul>
+      <li>Trưa: 150g ức gà luộc, 200g khoai lang, cải xanh hấp</li>
+      <li>Tối: 150g cá hồi áp chảo, 1 chén cơm trắng, canh rau dền</li>
+    </ul>
+  </div>
+
+  <button onclick="toggleDay('dayTue')">Thứ 3 – Lưng + Tay trước</button>
+  <div id="dayTue" style="display: none; margin: 0.5rem 0 1rem 1rem;">
+    <ul>
+      <li>Trưa: 200g thịt bò xào hành cần, 1 củ khoai tây luộc, salad dưa leo</li>
+      <li>Tối: 2 quả trứng luộc, cơm gạo lứt, bắp cải xào</li>
+    </ul>
+  </div>
+
+  <button onclick="toggleDay('dayThu')">Thứ 5 – Vai + Bụng</button>
+  <div id="dayThu" style="display: none; margin: 0.5rem 0 1rem 1rem;">
+    <ul>
+      <li>Trưa: 150g ức gà áp chảo, yến mạch nấu chín, bông cải xanh</li>
+      <li>Tối: 150g cá basa hấp, cà rốt luộc, đậu cove xào</li>
+    </ul>
+  </div>
+
+  <button onclick="toggleDay('daySat')">Thứ 7 – Ngực + Core</button>
+  <div id="daySat" style="display: none; margin: 0.5rem 0 1rem 1rem;">
+    <ul>
+      <li>Trưa: 2 trứng ốp la, bánh mì nguyên cám, rau trộn dầu oliu</li>
+      <li>Tối: 150g thịt heo nạc luộc, 1 chén bún gạo, canh mướp</li>
+    </ul>
+  </div>
+
+  <button onclick="toggleDay('daySun')">Chủ nhật – Chân + Cầu vai</button>
+  <div id="daySun" style="display: none; margin: 0.5rem 0 1rem 1rem;">
+    <ul>
+      <li>Trưa: 150g tôm hấp, cơm trắng, rau muống luộc</li>
+      <li>Tối: 200g gà nướng mật ong, miến, canh cải thìa</li>
+    </ul>
+  </div>
 </div>
 
 <script>
-  function toggleMealPlan() {
-    var mealPlan = document.getElementById("mealPlan");
-    if (mealPlan.style.display === "none") {
-      mealPlan.style.display = "block";
-    } else {
-      mealPlan.style.display = "none";
-    }
+  function toggleDay(dayId) {
+    const div = document.getElementById(dayId);
+    div.style.display = (div.style.display === "none") ? "block" : "none";
   }
 </script>
 </html>
