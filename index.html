@@ -34,30 +34,31 @@
 <div id="mealDiv" style="margin-left: 1rem;"></div>
 
 <script>
+  // Hiện thực đơn hôm nay khi tải trang
   window.addEventListener('DOMContentLoaded', () => {
     const dayMap = {
-      1: 'dayMon',
-      2: 'dayTue',
-      4: 'dayThu',
-      6: 'daySat',
-      0: 'daySun'
+      1: 'dayMon',   // Monday
+      2: 'dayTue',   // Tuesday
+      4: 'dayThu',   // Thursday
+      6: 'daySat',   // Saturday
+      0: 'daySun'    // Sunday
     };
 
-    const today = new Date().getDay(); // 0 (Sun) → 6 (Sat)
-    const allDays = ['dayMon', 'dayTue', 'dayThu', 'daySat', 'daySun'];
-
-    // Ẩn tất cả các thực đơn
-    allDays.forEach(id => {
-      const el = document.getElementById(id);
-      if (el) el.style.display = 'none';
-    });
-
-    // Hiện đúng thực đơn hôm nay nếu có
+    const today = new Date().getDay(); // 0 (Sun) to 6 (Sat)
     const todayId = dayMap[today];
+
     if (todayId) {
-      const el = document.getElementById(todayId);
-      if (el) el.style.display = 'block';
+      const todayDiv = document.getElementById(todayId);
+      if (todayDiv) todayDiv.style.display = 'block';
     }
   });
+
+  // Cho phép bấm nút để hiện/ẩn từng ngày
+  function toggleDay(dayId) {
+    const div = document.getElementById(dayId);
+    if (div) {
+      div.style.display = (div.style.display === "none" || div.style.display === "") ? "block" : "none";
+    }
+  }
 </script>
 </html>
