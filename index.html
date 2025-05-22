@@ -68,7 +68,6 @@
   </ul>
 </div>
 <script>
-  // Hiện thực đơn hôm nay khi tải trang
   window.addEventListener('DOMContentLoaded', () => {
     const dayMap = {
       1: 'dayMon',   // Monday
@@ -78,21 +77,22 @@
       0: 'daySun'    // Sunday
     };
 
+    const allMealIds = ['dayMon', 'dayTue', 'dayThu', 'daySat', 'daySun'];
+
+    // Ẩn tất cả thực đơn
+    allMealIds.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.style.display = 'none';
+    });
+
     const today = new Date().getDay(); // 0 (Sun) to 6 (Sat)
     const todayId = dayMap[today];
 
+    // Hiện thực đơn đúng ngày
     if (todayId) {
       const todayDiv = document.getElementById(todayId);
       if (todayDiv) todayDiv.style.display = 'block';
     }
   });
-
-  // Cho phép bấm nút để hiện/ẩn từng ngày
-  function toggleDay(dayId) {
-    const div = document.getElementById(dayId);
-    if (div) {
-      div.style.display = (div.style.display === "none" || div.style.display === "") ? "block" : "none";
-    }
-  }
 </script>
 </html>
