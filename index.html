@@ -29,22 +29,66 @@
   <ul id="exercises"></ul>
   <script src="app.js"></script>
 </body>
-  <script>
+  <!-- Meal Plan Section -->
+<h2 style="margin-top: 2rem;">Thực đơn hôm nay</h2>
+<div id="mealDiv" style="margin-left: 1rem;"></div>
+
+<script>
   const mealPlans = {
-    1: ["Trưa: 150g ức gà, 200g khoai lang, rau luộc", "Tối: 150g cá hồi, 1 chén cơm, canh cải bó xôi"],
-    2: ["Trưa: 200g thịt bò nạc, 1 củ khoai tây, salad", "Tối: 2 quả trứng luộc, cơm gạo lứt, rau xanh"],
-    4: ["Trưa: 150g ức gà áp chảo, yến mạch, rau hấp", "Tối: 150g cá basa, 1 củ cà rốt, bông cải xanh"],
-    6: ["Trưa: 2 trứng ốp la, bánh mì nguyên cám, rau trộn", "Tối: 150g thịt heo nạc, bún gạo, canh bí"],
-    0: ["Trưa: 150g tôm luộc, cơm trắng, rau cải", "Tối: 200g thịt gà, miến, súp lơ luộc"]
+    1: {
+      title: "Thứ 2 – Ngực + Tay sau",
+      meals: [
+        "Trưa: 150g ức gà luộc, 200g khoai lang, cải xanh hấp",
+        "Tối: 150g cá hồi áp chảo, 1 chén cơm trắng, canh rau dền"
+      ]
+    },
+    2: {
+      title: "Thứ 3 – Lưng + Tay trước",
+      meals: [
+        "Trưa: 200g thịt bò xào hành cần, 1 củ khoai tây luộc, salad dưa leo",
+        "Tối: 2 quả trứng luộc, cơm gạo lứt, bắp cải xào"
+      ]
+    },
+    4: {
+      title: "Thứ 5 – Vai + Bụng",
+      meals: [
+        "Trưa: 150g ức gà áp chảo, yến mạch nấu chín, bông cải xanh",
+        "Tối: 150g cá basa hấp, cà rốt luộc, đậu cove xào"
+      ]
+    },
+    6: {
+      title: "Thứ 7 – Ngực + Core",
+      meals: [
+        "Trưa: 2 trứng ốp la, bánh mì nguyên cám, rau trộn dầu oliu",
+        "Tối: 150g thịt heo nạc luộc, 1 chén bún gạo, canh mướp"
+      ]
+    },
+    0: {
+      title: "Chủ nhật – Chân + Cầu vai",
+      meals: [
+        "Trưa: 150g tôm hấp, cơm trắng, rau muống luộc",
+        "Tối: 200g gà nướng mật ong, miến, canh cải thìa"
+      ]
+    }
   };
 
   function updateMealPlan(day) {
-    if (mealPlans[day]) {
-      const mealHTML = mealPlans[day].map(m => `<li>${m}</li>`).join("");
-      mealDiv.innerHTML = `<h3>Thực đơn hôm nay:</h3><ul>${mealHTML}</ul>`;
+    const container = document.getElementById("mealDiv");
+    const plan = mealPlans[day];
+    if (plan) {
+      container.innerHTML = `
+        <h3>${plan.title}</h3>
+        <ul>
+          ${plan.meals.map(meal => `<li>${meal}</li>`).join('')}
+        </ul>
+      `;
     } else {
-      mealDiv.innerHTML = "<h3>Hôm nay nghỉ ngơi, ăn uống linh hoạt</h3>";
+      container.innerHTML = "<p>Hôm nay bạn nghỉ tập, không cần thực đơn đặc biệt.</p>";
     }
   }
+
+  // Gọi hàm khi trang tải
+  const today = new Date().getDay(); // 0 = CN, 1 = T2, ..., 6 = T7
+  updateMealPlan(today);
 </script>
 </html>
